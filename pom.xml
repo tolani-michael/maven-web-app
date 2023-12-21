@@ -27,7 +27,10 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-		
+		<properties>
+  <sonar.organization>mylandmarktechs</sonar.organization>
+  <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+</properties>
 	</properties>
 
 	<dependencies>
@@ -83,7 +86,14 @@
 			<version>${spring.version}</version>
 		</dependency>
 		
-		
+		<!-- provided dependencies -->
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+			<scope>provided</scope>
+		</dependency>
 		
 	</dependencies>
 	
