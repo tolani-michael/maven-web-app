@@ -6,6 +6,8 @@
 	<artifactId>maven-web-application</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
+
+	<!-- provided exercise -->
 	
 	<name>maven-web-application</name>
 
