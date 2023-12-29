@@ -1,0 +1,93 @@
+//Declarative
+https://github.com/tolani-michael/maven-web-app
+pipeline{
+agent any
+tool{
+"maven3.8.4"
+}
+stages{
+
+stage('gitclone'){
+steps{
+  sh "echo cloning the latest application version"
+  git "https://github.com/tolani-michael/maven-web-app"
+}
+
+}
+
+stage('TestBuild'){
+steps{
+  sh "echo Running unitTesting"
+  sh "echo unit test ok. creating packages"
+  sh "mvn clean package"
+  sh "artifact created"
+}
+
+}
+
+stage('CodeQuality'){
+steps{
+  sh "echo Running code quality report"
+  sh "mvn sonar:sonar"
+
+}
+
+}
+
+stage('Uploadartifacts'){
+steps{
+  sh "echo upload CI job is successful"
+  sh "mvn deploy"
+
+}
+
+}
+
+stage('message'){
+steps{
+  sh "echo upload CI job is successful"
+
+}
+
+}
+
+stage('predeployment'){
+steps{
+  sh "docker build -t mylandmarktech/maven-web-app ."
+  sh "docker push mylandmarktech/maven-web-app"
+
+}
+
+}
+
+stage('undeploy'){
+steps{
+  sh "echo undeploy the existing application"
+  sh "docker rm -f webapp"
+
+}
+
+}
+stage('deployment'){
+steps{
+  sh "echo application is ready for deployment"
+  sh "docker run -d -p --name webapp -d -p 8080:8080"
+
+}
+
+}
+
+stage('emailNotification'){
+steps{
+  sh "echo deployment is successful"
+
+}
+
+}
+
+
+
+}
+
+
+}
