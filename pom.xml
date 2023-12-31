@@ -6,7 +6,6 @@
 	<artifactId>maven-web-application</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
-
 	
 	<name>maven-web-application</name>
 
@@ -27,13 +26,12 @@
 		<sonar.password>admin</sonar.password>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-	</properties>
-		
-	
+
 		<properties>
   <sonar.organization>mylandmarktechs</sonar.organization>
   <sonar.host.url>https://sonarcloud.io</sonar.host.url>
 </properties>
+	</properties>
 
 	<dependencies>
 		
